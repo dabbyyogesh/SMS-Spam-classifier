@@ -1,11 +1,16 @@
 import streamlit as st
 import pickle
-from nltk.stem.porter import PorterStemmer
-ps = PorterStemmer()
-from nltk.corpus import stopwords
 import string
 import nltk
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
 
+# Add these three lines right below your imports!
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+
+ps = PorterStemmer()
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
