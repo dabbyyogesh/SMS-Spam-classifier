@@ -1,22 +1,22 @@
 import streamlit as st
 import pickle
+from nltk.stem.porter import PorterStemmer
+ps = PorterStemmer()
+from nltk.corpus import stopwords
 import string
 import nltk
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 
-# Add these three lines right below your imports!
 nltk.download('punkt')
 nltk.download('punkt_tab')
 nltk.download('stopwords')
 
-ps = PorterStemmer()
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
 st.title("Email/SMS Spam Classifire")
 
-input_sms = st.text_input("Enter the message")
+# Changed to text_area: This automatically expands as the user types a large message
+input_sms = st.text_area("Enter the message")
 
 
 def transform_text(text):
