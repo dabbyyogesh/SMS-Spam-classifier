@@ -13,7 +13,7 @@ nltk.download('stopwords')
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
-st.title("Email/SMS Spam Classifire")
+st.title("Email/SMS Spam Classifier")
 
 # Changed to text_area: This automatically expands as the user types a large message
 input_sms = st.text_area("Enter the message")
